@@ -1,5 +1,6 @@
 <?php
-
+namespace FpiApi\Gateway;
+use FpiApi\Gateway\Gateway;
 /**
  * Gateway for Luottokunta
  * 
@@ -7,7 +8,7 @@
  * Uses hash('sha256', $mac) instead of md5($mac) which is the new infosec-policy
  *
  */
-class FpiapiGatewayLuottokunta extends FpiapiGateway {
+class Luottokunta extends FpiapiGateway {
 
     /**
      * Constructor

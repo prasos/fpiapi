@@ -1,10 +1,14 @@
 <?php
+namespace FpiApi\Gateway;
+use FpiApi\Gateway\Gateway;
+use FpiApi\QueryResult;
+use FpiApi\FpiapiException;
+
 /**
  * Gateway for Osuuspankki
  *
  */
-
-class FpiapiGatewayOsuuspankki extends FpiapiGateway {
+class Osuuspankki extends Gateway {
   
   /**
    * Constructor
@@ -153,7 +157,7 @@ class FpiapiGatewayOsuuspankki extends FpiapiGateway {
         throw new FpiapiException("Error", FPIAPI_EXCEPTION_ERROR);
     }
     
-    $qr = new FpiapiQueryResult();
+    $qr = new QueryResult();
     
     $qr->setSum($params['SUMMA']);
     $qr->setUid($params['KYSELYTUNNUS']);

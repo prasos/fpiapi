@@ -1,11 +1,11 @@
 <?php 
+namespace FpiApi\Gateway;
+use FpiApi\Gateway\Samlink;
+
 /**
  * Gateway for POP Pankki
  */
-
-require_once "samlink.php";
-
-class FpiapiGatewayPop extends FpiapiGatewaySamlink {
+class Pop extends Samlink {
   
   /**
    * Constructor

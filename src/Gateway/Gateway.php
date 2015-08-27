@@ -1,4 +1,6 @@
 <?php
+namespace FpiApi\Gateway;
+use FpiApi\Transaction;
 /**
  * Baseclass for all gateways
  * 
@@ -8,7 +10,7 @@
 
 // TODO: more comments
 
-class FpiapiGateway {
+class Gateway {
   
   protected $errorUrl; // Cancellation and error url
   protected $returnUrl; // Return url
@@ -135,7 +137,7 @@ class FpiapiGateway {
    * Set the fpiapi_transaction for the gateway
    * @param fpiapi_transaction $t
    */
-  public function setTransaction(FpiapiTransaction $t) {
+  public function setTransaction(Transaction $t) {
     $this->transaction = $t;
   }
 

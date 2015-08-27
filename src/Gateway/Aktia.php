@@ -1,11 +1,12 @@
 <?php 
+namespace FpiApi\Gateway;
+
+use FpiApi\Gateway\Samlink;
+
 /**
  * Gateway for Aktia
  */
-
-require_once "samlink.php";
-
-class FpiapiGatewayAktia extends FpiapiGatewaySamlink {
+class Aktia extends Samlink {
   
   /**
    * Constructor

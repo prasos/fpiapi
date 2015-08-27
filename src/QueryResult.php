@@ -1,4 +1,6 @@
 <?php
+namespace FpiApi;
+use FpiApi\Transaction;
 /**
  * 
  * FpiAPI query class
@@ -7,7 +9,7 @@
  *
  */
 
-class FpiapiQueryResult extends FpiapiTransaction {
+class QueryResult extends Transaction {
   
   
   protected $referenceNumber; // querys reference number on the banks side (should match transactions ref.num)

@@ -1,4 +1,9 @@
 <?php
+namespace FpiApi\Gateway;
+use FpiApi\Gateway\Gateway;
+use FpiApi\QueryResult;
+use FpiApi\FpiapiException;
+
 /**
  * Samlink based web payment:
  * 	Säästöpankki
@@ -6,9 +11,7 @@
  * 
  * Samlink base payment systems offer no support for languages or due dates.
  */
-
-
-class FpiapiGatewaySamlink extends FpiapiGateway {
+class Samlink extends Gateway {
   
   /**
    * Constructor
@@ -234,7 +237,7 @@ class FpiapiGatewaySamlink extends FpiapiGateway {
         throw new FpiapiException("Error", FPIAPI_EXCEPTION_ERROR);
     }
     
-    $qr = new FpiapiQueryResult();
+    $qr = new QueryResult();
     
     $qr->setSum($params['NET_AMOUNT']);
     $qr->setUid($params['NET_STAMP']);

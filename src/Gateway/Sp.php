@@ -1,11 +1,11 @@
 <?php 
+namespace FpiApi\Gateway;
+use FpiApi\Gateway\Samlink;
+
 /**
  * Gateway for Säästöpankki
  */
-
-require_once "samlink.php";
-
-class FpiapiGatewaySp extends FpiapiGatewaySamlink {
+class Sp extends Samlink {
   
   /**
    * Constructor

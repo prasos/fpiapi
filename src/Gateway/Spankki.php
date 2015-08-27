@@ -1,12 +1,12 @@
 <?php
+namespace FpiApi\Gateway;
+use FpiApi\Gateway\Crosskey;
+
 /**
  * Gateway for S-Pankki
  * 
  */
-
-require_once "crosskey.php";
-
-class FpiapiGatewaySpankki extends FpiapiGatewayCrosskey {
+class Spankki extends Crosskey {
   
   /**
    * Constructor

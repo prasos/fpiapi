@@ -1,4 +1,6 @@
 <?php
+namespace FpiApi\Gateway;
+use FpiApi\Gateway\Gateway;
 /**
  * Gateway for Paytrail payment processor
  *
@@ -8,7 +10,7 @@
  * see NOTIFY_ADDRESS in API documentation
  */
 
-class FpiapiGatewayPaytrail extends FpiapiGateway {
+class Paytrail extends Gateway {
   
   /**
    * Constructor

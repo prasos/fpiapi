@@ -1,9 +1,11 @@
 <?php
+namespace FpiApi\Gateway;
+use FpiApi\Gateway\Gateway;
 /**
  * Gateway for Danskebank
  */
 
-class FpiapiGatewayDanskebank extends FpiapiGateway {
+class Danskebank extends Gateway {
   
   /**
    * Constructor

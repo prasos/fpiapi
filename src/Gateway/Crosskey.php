@@ -1,4 +1,9 @@
 <?php
+namespace FpiApi\Gateway;
+use FpiApi\Gateway\Gateway;
+use FpiApi\QueryResult;
+use FpiApi\FpiapiException;
+
 /**
  * Crosskey powered based web payment:
  *  Ålandsbanken
@@ -7,9 +12,7 @@
  *
  * Crosskey based payment systems offer only fi and sv languages.
  */
-
-
-class FpiapiGatewayCrosskey extends FpiapiGateway {
+class Crosskey extends Gateway {
   
   /**
    * Constructor
@@ -167,7 +170,7 @@ class FpiapiGatewayCrosskey extends FpiapiGateway {
         throw new FpiapiException("Error", FPIAPI_EXCEPTION_ERROR);
     }
     
-    $qr = new FpiapiQueryResult();
+    $qr = new QueryResult();
     
     $qr->setSum($params['CBS_AMOUNT']);
     $qr->setUid($params['CBS_STAMP']);

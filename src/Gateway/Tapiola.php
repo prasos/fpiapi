@@ -1,13 +1,13 @@
 <?php
+namespace FpiApi\Gateway;
+use FpiApi\Gateway\Crosskey;
+
 /**
  * 
  * Gateway for Tapiola
  *
  */
-
-require_once "crosskey.php";
-
-class FpiapiGatewayTapiola extends FpiapiGatewayCrosskey {
+class Tapiola extends Crosskey {
   
   /**
    * Constructor

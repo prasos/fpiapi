@@ -1,10 +1,14 @@
 <?php
+namespace FpiApi\Gateway;
+use FpiApi\Gateway\Gateway;
+use FpiApi\QueryResult;
+use FpiApi\FpiapiException;
 /**
  * Gateway for Nordea
  *
  */
 
-class FpiapiGatewayNordea extends FpiapiGateway {
+class Nordea extends Gateway {
   
   /**
    * Constructor
@@ -160,7 +164,7 @@ class FpiapiGatewayNordea extends FpiapiGateway {
         throw new FpiapiException("Error", FPIAPI_EXCEPTION_ERROR);
     }
     
-    $qr = new FpiapiQueryResult();
+    $qr = new QueryResult();
     
     $qr->setSum($params['SOLOPMT_AMOUNT']);
     $qr->setUid($params['SOLOPMT_STAMP']);

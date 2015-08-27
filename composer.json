@@ -1,0 +1,14 @@
+{
+    "name": "neatbasis/fpiapi",
+    "type": "library",
+    "description": "Api for making Finnish web payments via a handful of banks and Luottokunta.",
+    "license": "GPLv2",
+    "require": {
+        "php": ">=5.5.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "FpiApi\\": "src/"
+        }
+    }
+}

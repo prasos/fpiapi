@@ -1,4 +1,5 @@
 <?php
+namespace FpiApi;
 /**
  * 
  * Transaction class
@@ -7,7 +8,7 @@
  *
  */
 
-class FpiapiTransaction {
+class Transaction {
 
   private $uid; // Unique numeric ID that identifies this transaction
   private $sum; // Amount to pay

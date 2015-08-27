@@ -1,4 +1,8 @@
 <?php
+namespace FpiApi;
+use FpiApi\FpiapiException;
+use FpiApi\Transaction;
+
 /**
  *
  * FpiAPI main factory class
@@ -6,12 +10,7 @@
  * TODO: Ability to give default settings to the gateways via factory methods
  *
  */
-
-require_once "exception.php";
-require_once "transaction.php";
-
-
-class FpiapiFactory {
+class Factory {
 
 
   private static $included = array(); // booleans for file inclusions

@@ -1,11 +1,12 @@
 <?php
+namespace FpiApi\Gateway;
+
+use FpiApi\Gateway\Crosskey;
+
 /**
  * Gateway for Ålandsbanken
  */
-
-require_once "crosskey.php";
-
-class FpiapiGatewayAlandsbanken extends FpiapiGatewayCrosskey {
+class Alandsbanken extends Crosskey {
   
   /**
    * Constructor

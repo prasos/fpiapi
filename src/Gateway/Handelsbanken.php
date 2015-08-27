@@ -1,4 +1,6 @@
 <?php 
+namespace FpiApi\Gateway;
+use FpiApi\Gateway\Samlink;
 /**
  * Gateway for Handelsbanken
  * 
@@ -6,7 +8,7 @@
 
 require_once "samlink.php";
 
-class FpiapiGatewayHandelsbanken extends FpiapiGatewaySamlink {
+class Handelsbanken extends Samlink {
   
   /**
    * Constructor
