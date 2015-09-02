@@ -187,7 +187,14 @@ class Crosskey extends Gateway {
     
     return $qr;
   }
-    
+  
+  /**
+   * getResponse()
+   * Gets the response object
+   */
+  public function getResponse() {
+      return isset($this->response) ? $this->response : false;
+  }
   
   
 }
