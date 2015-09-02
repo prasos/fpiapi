@@ -2,6 +2,7 @@
 namespace FpiApi\Gateway;
 use FpiApi\Gateway\Gateway;
 use FpiApi\QueryResult;
+use FpiApi\Response;
 use FpiApi\FpiapiException;
 
 /**
@@ -14,6 +15,7 @@ use FpiApi\FpiapiException;
  */
 class Crosskey extends Gateway {
   
+  protected $response; // The response object
   /**
    * Constructor
    */
@@ -66,31 +68,37 @@ class Crosskey extends Gateway {
     return $fields;
   }
   
-  
   /**
    * isPaymentCompleted()
    * @see fpiapi/gateways/FpiapiGateway::isPaymentCompleted()
    */
   public function isPaymentCompleted() {
-
-    $params = &$_REQUEST;
-     
-    $fields = array(
-      isset($params['AAB-RETURN-VERSION']) ? $params['AAB-RETURN-VERSION'] : NULL,
-      $this->transaction->getUid(),
-      $this->transaction->getReferenceNumber(),
-      isset($params['AAB-RETURN-PAID']) ? $params['AAB-RETURN-PAID'] : NULL,
-    );
-    
-    if (!$this->checkFields($fields)) {
-      return false;
-    }    
-    
-    $mac = implode('&', $fields) . "&" . $this->configuration['privateKey'] . "&";
-    $mac = strtoupper(md5($mac));
-     
-    return strcmp($mac, $params['AAB-RETURN-MAC']) === 0;
-
+  
+      $params = &$_REQUEST;
+       
+      $fields = array(
+          isset($params['AAB-RETURN-VERSION']) ? $params['AAB-RETURN-VERSION'] : NULL,
+          isset($params['AAB-RETURN-STAMP']) ? $params['AAB-RETURN-STAMP'] : NULL,
+          isset($params['AAB-RETURN-REF']) ? $params['AAB-RETURN-REF'] : NULL,
+          isset($params['AAB-RETURN-PAID']) ? $params['AAB-RETURN-PAID'] : NULL,
+      );
+  
+      if (!$this->checkFields($fields)) {
+          return false;
+      }
+      
+      $this->response = new Response();
+      $this->response->setUid($params['AAB-RETURN-STAMP']);
+      $this->response->setVersion($params['AAB-RETURN-STAMP']);
+      $this->response->setReferenceNumber($params['AAB-RETURN-REF']);
+      $this->response->setArchiveId($params['AAB-RETURN-PAID']);
+      $this->response->setMac($params['AAB-RETURN-MAC']);
+  
+      $mac = implode('&', $fields) . "&" . $this->configuration['privateKey'] . "&";
+      $mac = strtoupper(md5($mac));
+       
+      return strcmp($mac, $params['AAB-RETURN-MAC']) === 0;
+  
   }
   
   
