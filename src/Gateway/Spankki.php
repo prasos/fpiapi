@@ -145,4 +145,30 @@ class Spankki extends Crosskey {
     return $qr;
   }
 
+  /**
+   * isPaymentCompleted()
+   * @see fpiapi/gateways/FpiapiGateway::isPaymentCompleted()
+   */
+  public function isPaymentCompleted() {
+
+    $params = &$_REQUEST;
+
+    $fields = array(
+      isset($params['AAB-RETURN-VERSION']) ? $params['AAB-RETURN-VERSION'] : NULL,
+      $this->transaction->getUid(),
+      $this->transaction->getReferenceNumber(),
+      isset($params['AAB-RETURN-PAID']) ? $params['AAB-RETURN-PAID'] : NULL,
+    );
+
+    if (!$this->checkFields($fields)) {
+      return false;
+    }
+
+    $mac = implode('&', $fields) . "&" . $this->configuration['privateKey'] . "&";
+    $mac = strtoupper(hash("sha256", $mac));
+
+    return strcmp($mac, $params['AAB-RETURN-MAC']) === 0;
+
+  }
+
 }

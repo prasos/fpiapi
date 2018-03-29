@@ -1,7 +1,7 @@
 <?php
 namespace FpiApi;
 /**
- * 
+ *
  * FpiAPI exception class
  *
  */
@@ -13,6 +13,3 @@ define("FPIAPI_EXCEPTION_ERROR",		 400);
 
 class FpiapiException extends \Exception {
 }
-
-
- 

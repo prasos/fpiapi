@@ -24,28 +24,27 @@ class Factory {
   static public function getGateway($gatewayName) {
 
     if (!isset(self::$included['gateway'])) {
-      require "gateways/gateway.php";
+      require "Gateway/Gateway.php";
       self::$included['gateway'] = true;
     }
 
-    $dir = dirname(__FILE__)."/gateways/";
+    $dir = dirname(__FILE__)."/Gateway/";
     $file = $dir . $gatewayName . ".php";
 
-    $className = "FpiapiGateway" . ucwords($gatewayName);
+    $className = ucwords($gatewayName);
 
     if (!isset(self::$included[$gatewayName])) {
       if (file_exists($file)) {
         require($file);
        } else {
-        throw new Exception("No such gateway as " . $gatewayName);
+        throw new FpiapiException("No such gateway as " . $gatewayName);
       }
     }
 
+    $className = '\\FpiApi\\Gateway\\' . $className;
     return new $className();
 
   }
 
 
 }
-
-
